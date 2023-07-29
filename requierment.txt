@@ -1,0 +1,3 @@
+پگچ های که برای که برای پروژه ضروری است
+selenium
+webdriver_manager
