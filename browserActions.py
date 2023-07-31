@@ -1,102 +1,125 @@
-# # برای این که درایور مربوط به هر کروم را دانلود کند از این کد استفاده می کنیم
 from selenium import webdriver
-
-#برای ادرس دادن در selenium v4
+from time import sleep
 from selenium.webdriver.chrome.service import Service as ChromeService
 
-# برای  دانلود کردن درایور مربوط به مرورگر اگر فیلتر نباشد
+# # برای این که درایور مربوط به هر کروم را دانلود کند از این کد استفاده می کنیم اگر فیلتر نباشد
 from webdriver_manager.chrome import ChromeDriverManager
-
-# کمتر از sleep استفاده شود
-from time import sleep
-# auto install chromDriver
 # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-# selenium v4
-driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
-# driver = webdriver.Chrome( executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe")
 
+#برای ادرس دادن محل درایور در selenium v4
+driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
+
+# بازکردن یک سایت
 # browser action1 > open web
 driver.get('https://www.google.com/')
-# sleep(2)
 
+# به دست آوردن تایتل یک صفحه
 # browser action2 > title page
 # window_title = driver.title
-# print(window_title)
 
+# بازگشت به صفحه قبل
 # browser action3 > back page
-# driver.get("https://www.wikipedia.org/")
-# sleep(3)
-
-# back to the last page
 # driver.back()
-# sleep(2)
 
-# browser action4 > forward
+
 # انتقال دوباره از صفحه back به جلو
+# browser action4 > forward
 # driver.forward()
 
+# refresh کردن صفحه
 # browser action5 > refresh
 # driver.refresh()
-# print('refresh')
 
+# بازکردن پنجره جدید در صفحه جدید
 #open new windows
 # browser action6 > open new window and switch to it(tab)
 # driver.switch_to.new_window('tab')
-# print(driver.title)
-# sleep(3)
 
+
+# بازکردن پنجره جدید در مرورگر جدید
 # browser action7 > open new window and switch to it( window)
 # driver.switch_to.new_window('window')
 # driver.get('https://labtob.ir/')
-# sleep(2)
 
 # browser action8 > Current window
+# یک آیدی از صفحه جدید میدهد
 # labtobWindow = driver.current_window_handle
-# print('labtobWindow: ' + str(labtobWindow))
+
 
 # browser action9 > All handles
+# همه هدل های که باز کردیم را میدهد
 # all_handles = driver.window_handles
-# print('all_handle: ' + str(all_handles))
+
 
 # browser action10 > switch
+# میتوان بین صفحه ها باتوجه به هندل ها switch کرد
 # driver.switch_to.window(all_handles[0])
 
+# صفحه را می بندد(در ورژن های جدید خودش می بندد)
 # browser action11 > Close Tab
 # driver.close()
 
 # browser action12 > quit session
 # driver.quit()
 
+
 # browser action13 > window Size
 # window_size = driver.get_window_size()
 # window_width_Size = driver.get_window_size()['width']
 # window_height_size = driver.get_window_size()['height']
-# print(window_height_size)
 
+# تعیین  و تغییر سایز پنجره مرورگر
 # browser action14 > set window Size
 # driver.set_window_size(500, 800)
 # size = driver.get_window_size()
-# sleep(3)
-# assert size['width'] == 800
 
+#  به دست اوردن موقیعبت پنجره مرورگر
 # browser action15 > get window position
 # current_window_position = driver.get_window_position()
-# print(current_window_position)
 
+# تنظیم کردن موقیعت مرورگر
 # browser action16 > set window position
 # driver.set_window_position(400, 500)
-# assert driver.get_window_position()['x'] == 400;
 
+# کمترین مقدار مرورگر
 # browser action17 > minimize
 # driver.minimize_window()
-# sleep(3)
 
+#بیشترین مقدار پنجره مرورگر
 # browser action17 > maximize window
 # driver.maximize_window()
-# sleep(2)
 
+# تمام صفحه کردن مرورگر
 # browser action17 > full screen window
 # driver.fullscreen_window()
-# sleep(6)
+
+# برای استفاده از optionها ی مثل صفحه خصوص باز کردن مرورگر و ...  استفاده می شود
+from selenium.webdriver.chrome.options import Options
+chrome_options = Options()
+
+# باز کردن صفحه خصوصی
+# browser action18 > open incognito window
+# chrome_options.add_argument("--incognito")
+
+# عملیات بدون باز کردن مرورگر انجام میشود
+# browser action19 > dontOpen browser
+chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"), options=chrome_options)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
