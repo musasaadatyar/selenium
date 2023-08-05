@@ -34,3 +34,16 @@ driver.get('https://www.wikipedia.org/')
 # //*[@class="login form"]//*[@value="Login"]
 # 3:find by index xpath ==> //tag[condition1][index], (//tag[condition1])[index],//tag[tag[condition1]] ,//tag[.//tag[condition1]],
 
+ # پیدا کردن یک مقدار با رند کردن آن
+ # round: //*[round(text())='435']
+
+# پیدا کردن یک مقدار با رند کردن آن دیگر مقدار اعشار را در نظر نمیگیرد
+# floor: //*[floor(text())='432']
+
+# اگر بخواهیم شرطیرا مخالف آن در نظر بگیریم
+# not: => //*[@type="radio" and not(@id="male")]
+
+# پیدا کردن مقدار قبل از یک المنت
+# substring-before ==> //*[substring(text(),':')='username']
+# پیدا کردن مقدار بعد از آن
+# substring-after ==> //*[substring(text(),':')='test']
