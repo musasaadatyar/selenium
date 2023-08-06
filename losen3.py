@@ -47,3 +47,31 @@ driver.get('https://www.wikipedia.org/')
 # substring-before ==> //*[substring(text(),':')='username']
 # پیدا کردن مقدار بعد از آن
 # substring-after ==> //*[substring(text(),':')='test']
+
+# sesion6 - xpath(acess)
+# به دست آوردن والد
+# 1://*[@id='qbc']/parent::*[@id='def'] ==>//*[@id='uname']/parent::div[@class='login form'],//*[@id='uname']/..
+
+# ancestor: درتمام اجداد میگردد
+# پیدا کردن اجداد یک المنت تا هرچه قدر که بخواهیم بریم غقب
+# 2://*[@id='abc']/ancestor::*[@id='def'] ==> //td[text()='Singer']/ancestor::table[@style='width:100%']
+
+# این المنت پدر و خود فرزند که اون مشخصات داشته باشند را می اورد
+# 3: //*[@name='uname']/ancestor-or-self::*[@id='uname']
+
+# پیدا کردن فرزند های یک المنت است
+# //tbody/tr[3]/child::*[text()='Singer']
+
+# descendant در تمام نوادگان آن می گردد
+# 1: //tag/descendant::*[@id='' ] ==>//tbody/descendant::*[text()='Singer']
+
+# //*[@name='uname']/descendant-or-self::*[@id='uname']
+
+# following  از یک نقط به بعد دنبال آن می گردد
+# 1://select[@id='option']/following::*[@value='option 1']
+
+# following-sibling => پیدا کردن المنت هم سطح
+# //*[@id='abc123']/following-sebling::*[@value='option 2']
+
+# preceding : المنت های هم سطح که قبل از جای ک مشخص میکنیم
+# //*[@id='abc']/preceding-sibling::*[@id='asd']
