@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 from webdriver_manager.chrome import ChromeDriverManager
+# driver = webdriver.Chrome(service=Service(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 driver = webdriver.Chrome(service=Service(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 driver.get('https://www.wikipedia.org/')
 # find element in the page
@@ -34,8 +35,38 @@ driver.get('https://www.wikipedia.org/')
 # //*[@class="login form"]//*[@value="Login"]
 # 3:find by index xpath ==> //tag[condition1][index], (//tag[condition1])[index],//tag[tag[condition1]] ,//tag[.//tag[condition1]],
 
- # پیدا کردن یک مقدار با رند کردن آن
- # round: //*[round(text())='435']
+# session5 xpath(functions)
+#  لازم نیست که مقدار value را کامل بنویسیم بخشی را مینویسیم
+# 1: contains(argumant,value) ==> //*[contains(@id,'lna')],//*[contains(text(),'layout two')]
+
+# باید مقدار اول value را وارد کنیم و لازم نیست کامل وارد شود
+# 2: start-with(argu, value)] ==> //*[starts-with(@id,'lna')]
+# 3: postion() ==> //tr[position()=2]
+
+# به دست آوردن آخرین مقدار
+# //tr[last()]
+
+# به دست آوردن یکی مونده به آخر:4
+# //tr[last()-1]
+
+# به دست اوردن یک عضو در یک زیرمجموعه:5
+# //tr[last()-1]//td[last()-2]
+
+# برای پیدا کردن مقداری استفاده میشود که مقدار مشخصی دارد:6
+# //tbody[ count(//tr)=7] , //tbody[ count(.//tr)=7]
+
+# functions ignor case
+# برای حذف space های اضافی اول و آخر
+# 1: normalize-space ==> //*[ normalize-space ( text())="Option 1" ] , //*[ normalize-space (@id)="moption " ]
+
+# برای پیدا کردن یک المنت و جایگزین کردن آن با یک مقدار خاص
+# 2: tranclate(string, str1, dtr2)  ==> //*[translate(@value,"ABCDEFGHIJKLMNOPQRSTYVWXYZ","abcdefghijklmnopqrsdwyz")="option 1"]
+# //*[normalize-space(translate(@value,"ABCDEFGHIJKLMNOPQRSTYVWXYZ","abcdefghijklmnopqrsdwyz"))="option 1"]
+
+#پیدا کردن یک مقدار بر اساس طول
+# 
+# پیدا کردن یک مقدار با رند کردن آن
+# round: //*[round(text())='435']
 
 # پیدا کردن یک مقدار با رند کردن آن دیگر مقدار اعشار را در نظر نمیگیرد
 # floor: //*[floor(text())='432']
