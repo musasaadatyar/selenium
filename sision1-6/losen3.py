@@ -106,3 +106,6 @@ driver.get('https://www.wikipedia.org/')
 
 # preceding : المنت های هم سطح که قبل از جای ک مشخص میکنیم
 # //*[@id='abc']/preceding-sibling::*[@id='asd']
+
+
+# sesion7 
