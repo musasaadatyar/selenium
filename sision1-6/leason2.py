@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 from webdriver_manager.chrome import ChromeDriverManager
+
 driver = webdriver.Chrome(service=Service(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 driver.get('https://labtob.ir/')
 
@@ -16,4 +17,3 @@ currentPath = Path(__file__).parents
 fileName = os.path.join(str(currentPath), 'session2.png')
 driver.save_screenshot(fileName)
 sleep(3)
-

@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 from webdriver_manager.chrome import ChromeDriverManager
+
 # driver = webdriver.Chrome(service=Service(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 driver = webdriver.Chrome(service=Service(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 driver.get('https://www.wikipedia.org/')
@@ -63,7 +64,7 @@ driver.get('https://www.wikipedia.org/')
 # 2: tranclate(string, str1, dtr2)  ==> //*[translate(@value,"ABCDEFGHIJKLMNOPQRSTYVWXYZ","abcdefghijklmnopqrsdwyz")="option 1"]
 # //*[normalize-space(translate(@value,"ABCDEFGHIJKLMNOPQRSTYVWXYZ","abcdefghijklmnopqrsdwyz"))="option 1"]
 
-#پیدا کردن یک مقدار بر اساس طول
+# پیدا کردن یک مقدار بر اساس طول
 # 
 # پیدا کردن یک مقدار با رند کردن آن
 # round: //*[round(text())='435']
@@ -108,4 +109,4 @@ driver.get('https://www.wikipedia.org/')
 # //*[@id='abc']/preceding-sibling::*[@id='asd']
 
 
-# sesion7 
+# sesion7

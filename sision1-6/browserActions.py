@@ -4,10 +4,11 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 
 # # برای این که درایور مربوط به هر کروم را دانلود کند از این کد استفاده می کنیم اگر فیلتر نباشد
 from webdriver_manager.chrome import ChromeDriverManager
+
 # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 
-#برای ادرس دادن محل درایور در selenium v4
+# برای ادرس دادن محل درایور در selenium v4
 driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"))
 
 # بازکردن یک سایت
@@ -32,7 +33,7 @@ driver.get('https://www.google.com/')
 # driver.refresh()
 
 # بازکردن پنجره جدید در صفحه جدید
-#open new windows
+# open new windows
 # browser action6 > open new window and switch to it(tab)
 # driver.switch_to.new_window('tab')
 
@@ -86,7 +87,7 @@ driver.get('https://www.google.com/')
 # browser action17 > minimize
 # driver.minimize_window()
 
-#بیشترین مقدار پنجره مرورگر
+# بیشترین مقدار پنجره مرورگر
 # browser action17 > maximize window
 # driver.maximize_window()
 
@@ -96,6 +97,7 @@ driver.get('https://www.google.com/')
 
 # برای استفاده از optionها ی مثل صفحه خصوص باز کردن مرورگر و ...  استفاده می شود
 from selenium.webdriver.chrome.options import Options
+
 chrome_options = Options()
 
 # باز کردن صفحه خصوصی
@@ -105,21 +107,5 @@ chrome_options = Options()
 # عملیات بدون باز کردن مرورگر انجام میشود
 # browser action19 > dontOpen browser
 chrome_options.add_argument("--headless")
-driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"), options=chrome_options)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+driver = webdriver.Chrome(service=ChromeService(executable_path=r"C:\Program Files\chrom Driver\chromedriver.exe"),
+                          options=chrome_options)
