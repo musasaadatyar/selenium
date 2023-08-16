@@ -59,12 +59,13 @@ print(offset)
 # actions.move_by_offset(offset['x'],offset['y']).pause(6).click().perform()
 
 
-# drag and drop by offset
-# el1 = driver.find_element('xpath', "//img[@id='drag1']")
-# cor_el1 = driver.find_element('xpath', "//img[@id='div1']").location
-# cor_el2= driver.find_element('xpath', "//img[@id='div1']").location
-# offset_x = cor_el1['x'] - cor_el2['x']
-# offset_y = cor_el1['y'] - cor_el2['y']
+# drag and drop by offset center
+el1 = driver.find_element('xpath', "//img[@id='drag1']")
+el2 = driver.find_element('xpath', "//img[@id='drag2']")
+cor_el1 = driver.find_element('xpath', "//img[@id='div1']").location
+cor_el2= driver.find_element('xpath', "//img[@id='div1']").location
+offset_x = (cor_el1['x'] - cor_el2['x']) + (el2.rect['width']-el2.rect['width']) /2
+offset_y = (cor_el1['y'] - cor_el2['y']) + (el2.rect['height']-el2.rect['height'])
 
 # actions.drag_and_drop_by_offset(el1,el2.offset_x, offset_y).perform()
 sleep(3)
