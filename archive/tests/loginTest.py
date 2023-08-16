@@ -5,14 +5,12 @@ from archive.classPages.mainPage import MainPage
 import unittest
 
 
+
 class LoginTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.options = webdriver.ChromeOptions()
-        cls.driver = webdriver.Chrome(
-            service=Service(
-                executable_path=r"C:\Program Files\chromDriver\chromedriver.exe"),
-            options=cls.options)
+        cls.driver = webdriver.Chrome()
         cls.driver.implicitly_wait(30)
         cls.driver.maximize_window()
 
