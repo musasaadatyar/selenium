@@ -1,15 +1,20 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 
 # service = Service(executable=r'C:\Program Files\chromDriver\chromedriver.exe')
+# driver = webdriver.Chrome(service=Service(executable_path=r'C:\Program Files\chromDriver\chromedriver.exe'))
 driver = webdriver.Chrome()
 actions = ActionChains(driver)
 driver.maximize_window()
-# driver.get('https://trytestingthis.netlify.app')
+
+driver.get('https://trytestingthis.netlify.app')
+driver.implicitly_wait(5);
+
 
 # 1:doubleClick
 # element_double_click = driver.find_element('xpath', "//button[text()='Double-click me']")
@@ -69,8 +74,8 @@ driver.maximize_window()
 
 # actions.drag_and_drop_by_offset(el1,el2.offset_x, offset_y).perform()
 
-driver.get('https://www.imdb.com/chart/top/?ref_=nv_mv_250')
-driver.implicitly_wait(6)
+# driver.get('https://www.imdb.com/chart/top/?ref_=nv_mv_250')
+# driver.implicitly_wait(6)
 
 
 # ====> session10 - scroll in browser
@@ -85,15 +90,75 @@ driver.implicitly_wait(6)
 # driver.execute_script('arguments[0].scrollIntoView()', el)
 
 # 3: scroll when there was no item
-def scroll_to_find_element(location, pixel):
-    for item in range(10):
-        try:
-            driver.find_element(location[0], location[1])
-            return True
-        except:
-            driver.execute_script(f"window.scrollTo(0,{str(pixel)})")
-            sleep(1)
-    return False
 
-resoul = scroll_to_find_element(['link text','asdadasdadad'],300)
-print(resoul)
+
+# 4:scroll element if curently cannot be found or not sure if it is in the page(assertion)
+# def scroll_to_find_element(location, pixel):
+#     for i in range(10):
+#         try:
+#             driver.find_element(location[0], location[1])
+#             return f"the element locate has be {location[1]} found"
+#         except:
+#             driver.execute_script(
+#                 f"window.scrollTo(0,{str(pixel)})"
+#             )
+#             sleep(0.5)
+#     raise Exception(f'the locate{location[1]} element not find')
+
+# 4:scroll element if curently cannot be found or not sure if it is in the page(true-false)
+# def scroll_to_find_element(location, pixel):
+#     for i in range(10):
+#         try:
+#             driver.find_element(location[0], location[1])
+#             return True
+#         except:
+#             driver.execute_script(
+#                 f"window.scrollTo(0,{str(pixel)})"
+#             )
+#             sleep(0.5)
+#     return False
+
+# driver.get('https://www.imdb.com/chart/top/?ref_=nv_mv_250')
+# driver.implicitly_wait(10)
+
+# 5:scroll to down of the page
+# driver.execute_script('window.scrollBy(0,document.body.scrollHeight)')
+
+# 6:scroll to up of the page
+# driver.execute_script('window.scrollBy(0,0)')
+
+# 7: scroll horizontal
+# driver.execute_script("document.querySelector('table td:last-child').scrollIntoView()")
+
+# 8: scroll use actionChains
+# el1 = driver.find_element('xpath',"//button[text()=' Submit']")
+# el2 = driver.find_element('id','fname')
+# actions.move_to_element(el2).pause(3).move_to_element(el1).pause(4).perform()
+
+# 9 scroll use keyboard
+# el = driver.find_element('tag name', 'html')
+# actions.send_keys_to_element(el, Keys.END).perform()
+# actions.send_keys_to_element(el, Keys.UP).perform()
+
+
+# page_elemnt = driver.find_element('tag name', 'html')
+# def scroll_to_find_element(locator):
+#     for i in range(10):
+#         try:
+#             driver.find_element(locator[0], locator[1])
+#         except:
+#             actions.send_keys_to_element(page_elemnt, Keys.PAGE_DOWN).perform()
+#             sleep(0.5)
+#     return False
+# result = scroll_to_find_element(['id', 'demdsfsfso'])
+
+# scroll to the element we find
+# element = driver.find_element('xpath', '//h4[text()=" Please suggest any improvements to this website. You can reach me in "]')
+# element.location_once_scrolled_into_view
+
+# scroll horizentall
+# element = driver.find_element('xpath', '//h4[text()=" Please suggest any improvements to this website. You can reach me in "]')
+# element.location_once_scrolled_into_view
+
+sleep(5)
+
